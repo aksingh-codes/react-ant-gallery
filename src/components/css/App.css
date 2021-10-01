@@ -26,13 +26,33 @@
     gap: 30px;
 }
 
+.img-gallery .card-container {
+    position: relative;
+}
+
+.img-gallery .delete-btn {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    box-shadow: gainsboro -1px 1px 40px 0;
+    color: white;
+}
+.img-gallery .delete-btn.active {
+    display: block;
+}
+
 .img-gallery .ant-card {
     height: 445px;
     margin-bottom: 30px;
 }
 
 .img-gallery .ant-card-cover {
-    height: 85%;
+    height: 80%;
+}
+
+.img-gallery .ant-card-cover .ant-image {
+    height: 100%;
 }
 
 .img-gallery .ant-card-cover img {
@@ -41,10 +61,40 @@
     object-fit: cover;
 }
 
+.update-btn {
+    display: none;
+}
 
+.update-btn.active {
+    display: block;
+}
+
+.img-preview-container {
+    position: relative;
+}
 .preview-img {
     object-fit: cover;
     object-position: center;
     height: 300px;
-    width: 80%;
+}
+
+.img-preview-container .ant-btn {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+}
+
+.no-img-container {
+    height: 300px;
+}
+
+@media screen and (max-width: 600px) {
+    .preview-img {
+        height: auto;
+        width: 100%;
+    }
+
+    .no-img-container {
+        height: 0;
+    }
 }

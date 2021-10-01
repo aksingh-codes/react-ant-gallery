@@ -3,6 +3,7 @@ import React from "react";
 import { UploadOutlined as UploadOutlinedIcon } from "@ant-design/icons";
 import { Route } from "react-router";
 import { Link } from "react-router-dom";
+import useBreakpoint from "antd/lib/grid/hooks/useBreakpoint";
 
 const Header = () => {
   return (
@@ -18,11 +19,18 @@ const Header = () => {
 export default Header;
 
 const Upload = () => {
+  const screens = useBreakpoint();
+
   return (
     <Link to="/upload">
-      <Button icon={<UploadOutlinedIcon />} type="primary">
-        Upload Image
-      </Button>
+      {screens.xs ? (
+        <Button icon={<UploadOutlinedIcon />} type="primary">
+        </Button>
+      ) : (
+        <Button icon={<UploadOutlinedIcon />} type="primary">
+          Upload Image
+        </Button>
+      )}
     </Link>
   );
 };
