@@ -1,4 +1,4 @@
-import { Button, Card, Image, Popover, Row } from "antd";
+import { Button, Card, Image, Row } from "antd";
 import Meta from "antd/lib/card/Meta";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
@@ -6,18 +6,6 @@ import { DeleteOutlined } from "@ant-design/icons";
 
 const Gallery = ({ images, setSelectedImage }) => {
   const [active, setActive] = useState(null);
-  const content = () => {
-    return (
-      <div>
-        <Link to="/update">
-          <Button style={{ marginRight: "8px" }} type="primary">
-            Update
-          </Button>
-        </Link>
-        <Button>Delete</Button>
-      </div>
-    );
-  };
 
   return (
     <div className="img-gallery">
@@ -25,6 +13,7 @@ const Gallery = ({ images, setSelectedImage }) => {
         {images.map(({ image, id, title }) => {
           return (
             <div
+              key={id}
               className="card-container"
               onMouseOver={() => setActive(id)}
               onMouseLeave={() => setActive(null)}
@@ -49,8 +38,8 @@ const Gallery = ({ images, setSelectedImage }) => {
               <Button
                 className={active === id ? "delete-btn active" : "delete-btn"}
                 icon={<DeleteOutlined />}
-                type='ghost'
-                size='small'
+                type="ghost"
+                size="small"
               ></Button>
             </div>
           );
