@@ -5,7 +5,7 @@ import { DeleteOutlined } from "@ant-design/icons";
 import ImageApi from "../apis/ImageApi";
 import { useHistory } from "react-router";
 
-const Upload = () => {
+const Upload = (props) => {
   const history = useHistory()
   const [selectedImage, setSelectedImage] = useState(null)
   const [title, setTitle] = useState("")
@@ -60,6 +60,9 @@ const Upload = () => {
             "Success",
             "Image successfully uploaded!"
           );
+
+          props.setTriggerRemount(!props.triggerRemount)
+
           setTimeout(() => {
             history.push('/')
           }, 1500);

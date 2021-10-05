@@ -50,7 +50,7 @@ const Update = (props) => {
     const formData = new FormData();
     formData.append("image", selectedImage);
 
-    ImageApi.delete(`/delete/bzwe6apki3ndq7ib8x6b`)
+    ImageApi.delete(`/delete/${props.selectedImage}`)
       .then((res) => {
         if (_isEmpty(res.data) === false) {
           // success
@@ -65,6 +65,9 @@ const Update = (props) => {
                   "Success",
                   "Image successfully uploaded!"
                 );
+                
+                props.setTriggerRemount(!props.triggerRemount)
+
                 setTimeout(() => {
                   history.push("/");
                 }, 1500);
@@ -84,8 +87,8 @@ const Update = (props) => {
               );
               console.log(err);
             })
-            .finally(() => setLoading(false));
-
+            
+            props.setTriggerRemount(!props.triggerRemount)
 
         } else {
           // error
