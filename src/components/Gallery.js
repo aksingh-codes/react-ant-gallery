@@ -10,7 +10,7 @@ const Gallery = ({ images, setSelectedImage }) => {
   return (
     <div className="img-gallery">
       <Row justify="center" gutter={30}>
-        {images.map(({ image, id, title }) => {
+        {images && images.map(({ image, id, title }) => {
           return (
             <div
               key={id}
