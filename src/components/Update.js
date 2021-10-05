@@ -54,7 +54,7 @@ const Update = (props) => {
       .then((res) => {
         if (_isEmpty(res.data) === false) {
           // success
-          // upload new image
+          // update new image
 
           ImageApi.post("/post/singlefile", formData)
             .then((results) => {
@@ -63,7 +63,7 @@ const Update = (props) => {
                 openNotification(
                   "success",
                   "Success",
-                  "Image successfully uploaded!"
+                  "Image successfully updated!"
                 );
                 
                 props.setTriggerRemount(!props.triggerRemount)
@@ -75,7 +75,7 @@ const Update = (props) => {
                 openNotification(
                   "error",
                   "Error",
-                  "Failed to upload image, please try again!"
+                  "Failed to update image, please try again!"
                 );
               }
             })
@@ -83,7 +83,7 @@ const Update = (props) => {
               openNotification(
                 "error",
                 "Error",
-                "Failed to upload image, please try again!"
+                "Failed to update image, please try again!"
               );
               console.log(err);
             })
